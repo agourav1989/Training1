@@ -11,9 +11,11 @@ pipeline
            stage('Build')    {
                                steps {
                                       echo 'In build'
-				      javac Hello.java
-				      java Hello
-
+                                      withMaven(maven :'maven_3_5_0') 
+                                     {
+                                      sh 'mvn compile'
+                                     }
+				      
                                      }
                              }
 
